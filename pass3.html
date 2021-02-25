@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /*style for input fields*/
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-top: 6px;
+            margin-bottom: 16px;
+        }
+        /*style for submit form*/
+        
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+        }
+        /*style the container for input*/
+        
+        .container {
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+    </style>
+    <title>username & Password Validation</title>
+</head>
+
+<body>
+    <h3>Password Validation</h3>
+    <p>Try to submit the form</p>
+
+    <div class="container">
+        <form>
+            <label for="username">Username</label>
+            <input type="username" id="username" name="username" required>
+            <label for="psw">Password</label>
+            <input type="password" name="psw" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one Uperclass and One Lowerclass letter and at least 8 or more characters and a special character" required>
+            <input type="submit" onclick="test_str()" value="Submit">
+        </form>
+
+    </div>
+    <script>
+        function test_str() {
+            var res;
+            var user = document.getElementById("username").value;
+            var str = document.getElementById("psw").value;
+
+            if (user.length < 3 || user.match(/[!@#$%^&*]/)) {
+                res = "Username Must contain at least 3 or more characters and No special characters";
+            } else {
+                if (str.match(/[a-z]/g) && str.match(/[A-Z]/g) && str.match(/[0-9]/g) && str.match(/[!@#$%^&*]/) && str.length >= 8) {
+                    res = "Your Password was validated";
+                } else {
+                    res = "Password Must contain at least one number and one Uperclass and One Lowerclass letter and at least 8 or more characters and a special character";
+                }
+            }
+            //document.getElementById('validate').innerHTML = res;
+            alert(res)
+        }
+    </script>
+</body>
+
+</html>
