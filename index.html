@@ -52,10 +52,10 @@
             var user = document.getElementById("username").value;
             var str = document.getElementById("psw").value;
 
-            if (user.length < 3 || user.match(/[!@#$%^&*]/)) {
+            if (user.length < 3 || user.match(/[!@#$%₹^&*]/)) {
                 res = "Username Must contain at least 3 or more characters and No special characters";
             } else {
-                if (str.match(/[a-z]/g) && str.match(/[A-Z]/g) && str.match(/[0-9]/g) && str.match(/[!@#$%^&*]/) && str.length >= 8) {
+                if (str.match(/[a-z]/g) && str.match(/[A-Z]/g) && str.match(/[0-9]/g) && str.match(/[!@#₹$%^&*]/) && str.length >= 8) {
                     res = "Your Password was validated";
                 } else {
                     res = "Password Must contain at least one number and one Uperclass and One Lowerclass letter and at least 8 or more characters and a special character";
